@@ -1,0 +1,10 @@
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\bin\Debug\ParserSQL.exe.config
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\bin\Debug\ParserSQL.exe
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\bin\Debug\ParserSQL.pdb
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.csprojResolveAssemblyReference.cache
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.Inicio.resources
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.Properties.Resources.resources
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.csproj.GenerateResource.Cache
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.exe
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.pdb
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.IDE.resources
