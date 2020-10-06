@@ -8,3 +8,7 @@ C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.csp
 C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.exe
 C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.pdb
 C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\obj\Debug\ParserSQL.IDE.resources
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\bin\Debug\Errores.cs.dll
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\bin\Debug\TablaSimbolos.dll
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\bin\Debug\Errores.cs.pdb
+C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\ParserSQL\bin\Debug\TablaSimbolos.pdb

@@ -43,7 +43,6 @@
             this.colorDeLaFuenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDeConsolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maximizarVentanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizarVentanaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +57,7 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.txt_direccion = new System.Windows.Forms.ToolStripLabel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -127,6 +127,7 @@
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // nuevoToolStripMenuItem
             // 
@@ -137,6 +138,7 @@
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem
             // 
@@ -148,6 +150,7 @@
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             this.guardarToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.guardarToolStripMenuItem.Text = "Guardar como";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem1
             // 
@@ -158,6 +161,7 @@
             this.guardarToolStripMenuItem1.Name = "guardarToolStripMenuItem1";
             this.guardarToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
             this.guardarToolStripMenuItem1.Text = "Guardar";
+            this.guardarToolStripMenuItem1.Click += new System.EventHandler(this.guardarToolStripMenuItem1_Click);
             // 
             // cerrarProyectoToolStripMenuItem
             // 
@@ -180,14 +184,14 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // herramientasToolStripMenuItem
             // 
             this.herramientasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.herramientasToolStripMenuItem.BackgroundImage = global::ParserSQL.Properties.Resources.bkgb;
             this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preferenciasToolStripMenuItem,
-            this.opcionesToolStripMenuItem});
+            this.preferenciasToolStripMenuItem});
             this.herramientasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.herramientasToolStripMenuItem.ForeColor = System.Drawing.Color.LightGray;
             this.herramientasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("herramientasToolStripMenuItem.Image")));
@@ -217,6 +221,7 @@
             this.colorDeLaFuenteToolStripMenuItem.Name = "colorDeLaFuenteToolStripMenuItem";
             this.colorDeLaFuenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.colorDeLaFuenteToolStripMenuItem.Text = "Color de Fuente";
+            this.colorDeLaFuenteToolStripMenuItem.Click += new System.EventHandler(this.colorDeLaFuenteToolStripMenuItem_Click);
             // 
             // colorDeConsolaToolStripMenuItem
             // 
@@ -237,18 +242,6 @@
             this.formatoToolStripMenuItem.Name = "formatoToolStripMenuItem";
             this.formatoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.formatoToolStripMenuItem.Text = "Formato";
-            // 
-            // opcionesToolStripMenuItem
-            // 
-            this.opcionesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.opcionesToolStripMenuItem.BackgroundImage = global::ParserSQL.Properties.Resources.bkgb;
-            this.opcionesToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.opcionesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.opcionesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("opcionesToolStripMenuItem.Image")));
-            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.opcionesToolStripMenuItem.Text = "Opciones";
-            this.opcionesToolStripMenuItem.Click += new System.EventHandler(this.opcionesToolStripMenuItem_Click);
             // 
             // ventanaToolStripMenuItem
             // 
@@ -275,6 +268,7 @@
             this.maximizarVentanaToolStripMenuItem.Name = "maximizarVentanaToolStripMenuItem";
             this.maximizarVentanaToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.maximizarVentanaToolStripMenuItem.Text = "Maximizar";
+            this.maximizarVentanaToolStripMenuItem.Click += new System.EventHandler(this.maximizarVentanaToolStripMenuItem_Click);
             // 
             // minimizarVentanaToolStripMenuItem1
             // 
@@ -285,6 +279,7 @@
             this.minimizarVentanaToolStripMenuItem1.Name = "minimizarVentanaToolStripMenuItem1";
             this.minimizarVentanaToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
             this.minimizarVentanaToolStripMenuItem1.Text = "Minimizar";
+            this.minimizarVentanaToolStripMenuItem1.Click += new System.EventHandler(this.minimizarVentanaToolStripMenuItem1_Click);
             // 
             // minimizarVentanaToolStripMenuItem
             // 
@@ -307,6 +302,7 @@
             this.verPantallaCompletaToolStripMenuItem.Name = "verPantallaCompletaToolStripMenuItem";
             this.verPantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.verPantallaCompletaToolStripMenuItem.Text = "Pantalla Completa";
+            this.verPantallaCompletaToolStripMenuItem.Click += new System.EventHandler(this.verPantallaCompletaToolStripMenuItem_Click);
             // 
             // toolStrip2
             // 
@@ -320,7 +316,8 @@
             this.toolStripButton5,
             this.toolStripButton4,
             this.toolStripButton7,
-            this.toolStripButton8});
+            this.toolStripButton8,
+            this.txt_direccion});
             this.toolStrip2.Location = new System.Drawing.Point(0, 24);
             this.toolStrip2.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -337,6 +334,7 @@
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // toolStripButton9
             // 
@@ -346,6 +344,7 @@
             this.toolStripButton9.Name = "toolStripButton9";
             this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton9.Text = "nuevo";
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // toolStripButton3
             // 
@@ -356,6 +355,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "Guardar";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator4
             // 
@@ -372,6 +372,7 @@
             this.toolStripButton5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton5.Text = "Compilar";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // toolStripButton4
             // 
@@ -402,6 +403,12 @@
             this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton8.Text = "toolStripButton8";
             this.toolStripButton8.ToolTipText = "Reiniciar Sistema";
+            // 
+            // txt_direccion
+            // 
+            this.txt_direccion.Name = "txt_direccion";
+            this.txt_direccion.Size = new System.Drawing.Size(83, 22);
+            this.txt_direccion.Text = "Resultados";
             // 
             // dataGridView3
             // 
@@ -495,6 +502,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(1039, 502);
             this.Controls.Add(this.tabControl1);
@@ -505,6 +513,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "IDE";
             this.Text = "ParserSQL";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IDE_FormClosing);
             this.Load += new System.EventHandler(this.IDE_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -538,7 +547,6 @@
         private System.Windows.Forms.ToolStripMenuItem colorDeLaFuenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorDeConsolaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formatoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventanaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maximizarVentanaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizarVentanaToolStripMenuItem1;
@@ -567,5 +575,6 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.RichTextBox PagCodigo;
+        private System.Windows.Forms.ToolStripLabel txt_direccion;
     }
 }
