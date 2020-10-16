@@ -73,6 +73,7 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.iniciando);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inicio";
             this.Text = "Inicio";
             this.UseWaitCursor = true;

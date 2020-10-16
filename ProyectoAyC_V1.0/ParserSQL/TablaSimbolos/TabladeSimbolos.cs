@@ -8,28 +8,24 @@ namespace TablaSimbolos
 {
     public class TabladeSimbolos
     {
-        public string simbolo;
-        public string valor;
+        public string lexema;
+        
         public int NumLinea;
-        public int tamaño;
-        public int ambito;
+        
         public int id;
-        public string tipovar;
-        public string tipo;
+       
+        public string token;
         public string descripcion;
 
-        public TabladeSimbolos(string simb, string val, int nunlin, int tam, int ambit, int id_, string tip, string descrip, string tipvar)
+        public TabladeSimbolos(string lexem, int nunlin, int id_, string tok, string descrip)
         {
 
-            simbolo = simb;
-            valor = val;
+            lexema = lexem;           
             NumLinea = nunlin;
-            tamaño = tam;
-            ambito = ambit;
             id = id_;
-            tipo = tip;
+            token = tok;
             descripcion = descrip;
-            tipovar = tipvar;
+           
 
         }
 
@@ -42,16 +38,12 @@ namespace TablaSimbolos
             get { return id; }
             set { id = value; }
         }
-        public string Simbolo
+        public string Lexema
         {
-            get { return simbolo; }
-            set { simbolo = value; }
+            get { return lexema; }
+            set { lexema = value; }
         }
-        public string TipoVar
-        {
-            get { return tipovar; }
-            set { tipovar = value; }
-        }
+       
 
 
         public int Numero_de_linea
@@ -59,26 +51,12 @@ namespace TablaSimbolos
             get { return NumLinea; }
             set { NumLinea = value; }
         }
-        public int Ambito
-        {
-            get { return ambito; }
-            set { ambito = value; }
-        }
-        public int Tamaño
-        {
-            get { return tamaño; }
-            set { tamaño = value; }
-        }
-        public string Valor
-        {
-            get { return valor; }
-            set { valor = value; }
-        }
+       
 
-        public string Tipo
+        public string Token
         {
-            get { return tipo; }
-            set { tipo = value; }
+            get { return token; }
+            set { token = value; }
         }
 
         public string Descripcion

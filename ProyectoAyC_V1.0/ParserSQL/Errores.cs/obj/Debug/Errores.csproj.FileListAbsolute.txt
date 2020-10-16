@@ -3,3 +3,9 @@ C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\Errores.cs\bin\Debug\Errores.cs.p
 C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\Errores.cs\obj\Debug\Errores.csprojResolveAssemblyReference.cache
 C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\Errores.cs\obj\Debug\Errores.cs.dll
 C:\Users\Lisbeth\Desktop\ProyectoAyC\ParserSQL\Errores.cs\obj\Debug\Errores.cs.pdb
+C:\Users\Quevedo-PC\Downloads\ProyectoAyC\ParserSQL\Errores.cs\bin\Debug\Errores.cs.dll
+C:\Users\Quevedo-PC\Downloads\ProyectoAyC\ParserSQL\Errores.cs\bin\Debug\Errores.cs.pdb
+C:\Users\Quevedo-PC\Downloads\ProyectoAyC\ParserSQL\Errores.cs\obj\Debug\Errores.csprojAssemblyReference.cache
+C:\Users\Quevedo-PC\Downloads\ProyectoAyC\ParserSQL\Errores.cs\obj\Debug\Errores.csproj.CoreCompileInputs.cache
+C:\Users\Quevedo-PC\Downloads\ProyectoAyC\ParserSQL\Errores.cs\obj\Debug\Errores.cs.dll
+C:\Users\Quevedo-PC\Downloads\ProyectoAyC\ParserSQL\Errores.cs\obj\Debug\Errores.cs.pdb

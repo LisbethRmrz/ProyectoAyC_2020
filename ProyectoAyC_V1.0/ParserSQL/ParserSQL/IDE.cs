@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using TablaSimbolos;
 using Errores;
+using System.Diagnostics;
 
 namespace ParserSQL
 {
@@ -21,7 +22,7 @@ namespace ParserSQL
         int cantLineas = 0;
         string nomarchivox;
         TS tabla_simbolos = new TS();
-        TE tabla_errorres = new TE();
+       // TE tabla_errorres = new TE();
 
         public IDE()
         {
@@ -147,19 +148,19 @@ namespace ParserSQL
 
             try
             {
-                OpenFileDialog ofd = new OpenFileDialog();
+                OpenFileDialog opFiled = new OpenFileDialog();
 
-                ofd.Title = "ParserSQL#                                                                     Abrir Archivo                                                                       ";
-                ofd.ShowDialog();
-                if (File.Exists(ofd.FileName))
+                opFiled.Title = "ParserSQL#                                                                     Abrir Archivo                                                                       ";
+                opFiled.ShowDialog();
+                if (File.Exists(opFiled.FileName))
                 {
-                    using (Stream stream = ofd.OpenFile())
+                    using (Stream stream = opFiled.OpenFile())
                     {
                         //MessageBox.Show("archivo encontrado:  "+ofd.FileName);
-                        leerarchivo(ofd.FileName);
-                        nomarchivox = ofd.FileName;
+                        leerarchivo(opFiled.FileName);
+                        nomarchivox = opFiled.FileName;
 
-                        txt_direccion.Text = ofd.FileName;
+                        txt_direccion.Text = opFiled.FileName;
                         tabControl1.Visible = true;
                     }
 
@@ -170,7 +171,7 @@ namespace ParserSQL
 
                 MessageBox.Show("El archivo no se abrio correctamente");
 
-                tabla_errorres.addliste(2);
+               // tabla_errorres.addliste(2);
             }
 
         }
@@ -236,8 +237,8 @@ namespace ParserSQL
                     // el archivo no extiste
                     StreamWriter codigonuevo = File.CreateText(saveFile.FileName);
                     codigonuevo.Write(PagCodigo.Text);
-                    codigonuevo.Write("\n \n  Archivo creado el: " + DateTime.Now.ToString() + " />> \n ");
                     codigonuevo.Flush();
+                    codigonuevo.Write("\n \n ");
                     codigonuevo.Close();
                     nomarchivox = saveFile.FileName;
                     txt_direccion.Text = saveFile.FileName;
@@ -271,7 +272,7 @@ namespace ParserSQL
 
         public void leer_archivo_al(string nomarchivo)
         {
-            int contador_Ambitoi = 0;
+            //int contador_Ambitoi = 0;
             int contador_Ambitf = 0;
             int ambito = 0;
             try
@@ -292,32 +293,30 @@ namespace ParserSQL
                     }
                     else
                     {
-                        Palabras_Separadas = read.Split(' ');
+                        Palabras_Separadas = read.Split(' ');// se guardan las palabras separadas por un espacio en el arreglo "palabras_separadas"
                         foreach (var palabra in Palabras_Separadas)
                         {
                             #region Medicion del ambito
 
-                            if (palabra == "{")
-                            {
-                                contador_Ambitoi = contador_Ambitoi + 1;
-                            }
-                            if (palabra == "}")
+                            //if (palabra == "{")
+                            //{
+                            //    contador_Ambitoi = contador_Ambitoi + 1;
+                            //}
+                            if (palabra == ";")
                             {
                                 contador_Ambitf = contador_Ambitf + 1;
                             }
-                            ambito = contador_Ambitoi;
+                            ambito = contador_Ambitf;
                             #endregion
-
-
                             //-----------------------------------------------------------------------
 
 
-                            if (tabla_simbolos.compararAL(palabra.ToString()) && palabra != null)// se manda a comparar la palabra con la tabla de simbolos
+                            if (tabla_simbolos.compararPalabraAL(palabra.ToString()) && palabra != null)// se manda a comparar la palabra con la tabla de simbolos
                             {
                                 //                                                    simb  ,val, nunlin           ,tam,ambit,                 id_,           tipo,       descrip
                                 //uneSentencias();
 
-                                TabladeSimbolos objnuevo = new TabladeSimbolos(palabra, "", numero_de_lineas, -0, ambito, tabla_simbolos.compararALRef(palabra.ToString()), "palabra nueva", "palabra que coincide con la Tabla de simbolos", "");
+                                TabladeSimbolos objnuevo = new TabladeSimbolos(palabra, numero_de_lineas, tabla_simbolos.compararIdALRef(palabra.ToString()), "Palabra Reservada", "Palabra que coincide con la Tabla de simbolos");
                                 tabla_simbolos.añadir_obj(objnuevo);
 
                                 PagCodigo.SelectionStart = PagCodigo.Find(palabra);
@@ -329,13 +328,13 @@ namespace ParserSQL
                                 if (Regex.IsMatch(palabra, @"[a-zA-Z]") && palabra != null)//sentencia que revisa los dos texbox 
                                 {
                                     // System.Windows.Forms.MessageBox.Show("esto es una palabra");
-                                    TabladeSimbolos objnuevo = new TabladeSimbolos(palabra, "", numero_de_lineas, -0, ambito, tabla_simbolos.contlineas() + 1, "palabra nueva", "palabra que no coincide con la Tabla de simbolos,pero no se considera error", "");
+                                    TabladeSimbolos objnuevo = new TabladeSimbolos(palabra, numero_de_lineas, tabla_simbolos.contlineas(), "Palabra Nueva", "Palabra que no coincide con la Tabla de simbolos,pero no se considera error");
                                     tabla_simbolos.añadir_obj(objnuevo);
                                 }
                                 else if (Regex.IsMatch(palabra, @"\d{1}|\d{2}|\d{3}|\d{4}|\d{5}") && palabra != null)
                                 {
                                     //System.Windows.Forms.MessageBox.Show("esto es un numero");
-                                    TabladeSimbolos objnuevo = new TabladeSimbolos(palabra, palabra, numero_de_lineas, -0, ambito, tabla_simbolos.contlineas() + 1, "numero nuevo", "numero", "");
+                                    TabladeSimbolos objnuevo = new TabladeSimbolos(palabra, numero_de_lineas, tabla_simbolos.contlineas(), "Numero nuevo", "Numero");
                                     tabla_simbolos.añadir_obj(objnuevo);
 
                                     PagCodigo.SelectionStart = PagCodigo.Find(palabra);
@@ -345,24 +344,19 @@ namespace ParserSQL
                                 else
                                 {
                                     // System.Windows.Forms.MessageBox.Show("Error en la expresion \n no cumple con un formato correcto ");
-
                                 }
                             }
                         }//fin del analisis lexico
-
                     }
                     Palabras_Separadas = null;
                     cantLineas = numero_de_lineas;
                 }
 
-                if (contador_Ambitf != contador_Ambitoi)
-                {
-                    //MessageBox.Show("error de ambito");
-                    tabla_errorres.addliste(8);
-
-
-                }
-
+                //if (contador_Ambitf != contador_Ambitoi)
+                //{
+                //    //MessageBox.Show("error de ambito");
+                //    tabla_errorres.addliste(8);
+                //}
 
                 reader.Close();
             }
@@ -371,57 +365,57 @@ namespace ParserSQL
 
                 MessageBox.Show("El archivo no se abrio correctamente");
 
-                tabla_errorres.addliste(2);
+                //tabla_errorres.addliste(2);
             }
             catch (Exception)
             {
-                MessageBox.Show("error");
+                MessageBox.Show("Error");
             }
 
 
         }
 
-        public string[] uneSentencias()
-        {
-            string sentencia = null;
-            string[] sentencias = new string[cantLineas];
-            int bandera = 0;
-            string tipov = "";
+        //public string[] uneSentencias()
+        //{
+        //    string sentencia = null;
+        //    string[] sentencias = new string[cantLineas];
+        //    int bandera = 0;
+        //    string tipov = "";
 
-            for (int i = 1; i < cantLineas; i++) //une los token de cada linea
-            {
-                foreach (var token in tabla_simbolos.llamatabla())
-                {
-                    if (token.NumLinea == i && token != null)
-                    {
-                        if (bandera == 0)
-                        {
-                            token.TipoVar = token.Simbolo;
-                            tipov = token.Simbolo;
-                        }
+        //    for (int i = 1; i < cantLineas; i++) //une los token de cada linea
+        //    {
+        //        foreach (var token in tabla_simbolos.llamatabla())
+        //        {
+        //            if (token.NumLinea == i && token != null)
+        //            {
+        //                if (bandera == 0)
+        //                {
+        //                    token.TipoVar = token.Simbolo;
+        //                    tipov = token.Simbolo;
+        //                }
 
 
-                        if (bandera != 0)
-                        {
-                            sentencia = sentencia + " " + token.simbolo.ToString();
-                            token.TipoVar = tipov;
-                        }
-                        else
-                        {
-                            sentencia = sentencia + token.simbolo.ToString();
-                            bandera = 1;
-                        }
+        //                if (bandera != 0)
+        //                {
+        //                    sentencia = sentencia + " " + token.simbolo.ToString();
+        //                    token.TipoVar = tipov;
+        //                }
+        //                else
+        //                {
+        //                    sentencia = sentencia + token.simbolo.ToString();
+        //                    bandera = 1;
+        //                }
 
-                    }
-                }
-                sentencias[i] = sentencia;
-                sentencia = null;
-                bandera = 0;
-                tipov = "";
-            }
+        //            }
+        //        }
+        //        sentencias[i] = sentencia;
+        //        sentencia = null;
+        //        bandera = 0;
+        //        tipov = "";
+        //    }
 
-            return sentencias;
-        }
+        //    return sentencias;
+        //}
         #endregion
 
         #region analizador sintactico
@@ -496,29 +490,47 @@ namespace ParserSQL
         {
             guardaArchivo2(nomarchivox);
             tabla_simbolos.reinicialista();
-            tabla_errorres.reinicialista();
-            tabla_errorres.inicialestaE();
-            tabla_simbolos.inicialista();
+            //tabla_errorres.reinicialista();
+            //tabla_errorres.inicialestaE();
+            tabla_simbolos.inicialistaTokEstab();
             leer_archivo_al(nomarchivox);
-            string[] sent = uneSentencias();
-            tabla_simbolos.compararALsemantic();
+            //string[] sent = uneSentencias();
+            //tabla_simbolos.compararALsemantic();
 
             if (tabla_simbolos.revisar_duplicados())
-            {
-                tabla_errorres.addliste(11);
+            {               
+                //tabla_errorres.addliste(11);
             }
 
-            AnlzdrSntctc(sent);
+            //AnlzdrSntctc(sent);
             dataGridView1.DataSource = null;
             dataGridView2.DataSource = null;
             dataGridView1.DataSource = tabla_simbolos.llamatabla();
-            dataGridView2.DataSource = tabla_errorres.llamatablaE();
+           // dataGridView2.DataSource = tabla_errorres.llamatablaE(); // Tabla de abajo
            // System.Media.SystemSounds.Asterisk.Play();
         }
 
         private void PagCodigo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ventanaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo cmd;
+            cmd = new ProcessStartInfo("sqlcmd", "-S LAPTOP-LISBETH -i" + txt_direccion.Text);
+            cmd.UseShellExecute = false;
+            cmd.CreateNoWindow = true;
+            cmd.RedirectStandardOutput = true;
+
+            Process ejecutar = new Process();
+            ejecutar.StartInfo = cmd;
+            ejecutar.Start();
         }
     }
 }
